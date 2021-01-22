@@ -1,7 +1,9 @@
 
 const fieldCodes = [
   'W', 'U', 'B', 'R', 'G'
-]
+];
+
+const powerValue = [1, 2, 3, 4, 5];
 
 const cardTypes = [
   'terre',
@@ -10,13 +12,14 @@ const cardTypes = [
   'artefatti',
   'instantanei',
   'stregonerie'
-]
+];
 
-// Abbiamo creato un oggetto di oggetti, come riferimento
-// di una edizione. Se ad esempio scrivo editions['SP']
-// allora otterrò tutto un oggetto che descrive
-// con più dettagli l'edizione.
-// come oggetto di oggetti, può essere navigato solo con il for-in
+/* Abbiamo creato un oggetto di oggetti, come riferimento
+di una edizione. Se ad esempio scrivo editions['SP']
+allora otterrò tutto un oggetto che descrive
+con più dettagli l'edizione.
+come oggetto di oggetti, può essere navigato solo con il for-in */
+
 const editions = {
 
   'BL': {
@@ -86,6 +89,52 @@ const cards = [{
     }
 
     },
-]
+  {
+
+    cardName: 'Sviluppatore guerriero',
+
+    cost: {
+      genericCostNumber: 3,
+      costFields: [ // colors array con riferimento a fieldCodes
+        fieldCodes[2],
+        fieldCodes[3]
+      ],
+    },
+
+    picture: 'images/g.png',  // da inserire immagine
+    cardType: cardTypes[1],
+    cardObject: 'Bear',
+
+    editionType: editions['BL'],
+
+    description: 'Lo sviluppatore guerriero spezza i byte in bit!',
+    story: 'Lo sviluppatore guerriero è una forma di essere umano evoluto.',
+
+    score: {
+      power: 5,  // r
+      toughness: 3
+    }
+
+    },
+];
+
+// const filteredBy = ((array, propriety, condition) => {
+//   return newArray = array.filter((element) => {
+//     return element.propriety === condition;
+//   })
+// });
+
+const innerHTMLelement = ((container, array) => {
+  $(`${container}`).text('');
+  array.forEach((element, i) => {
+    let {cardName} = element
+    $(`${container}`).append(`<div> ${cardName} </div>`);
+  });
+
+});
+
+innerHTMLelement('.cards-list', cards)
+
+
 
 console.log(cards);
