@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Libre Baskerville';
+  font-size: 15px;
+}
+
+main {
+  max-width: 800px;
+  margin: auto;
+}
+
+.flx {
+  display: flex;
+}
+
+.selectors {
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 1px solid #CCC;
+}
+
+.selectors>div>* {
+  margin: 0 10px;
+}
+
+.cards-list{
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50px;
+  list-style: none;
+}
+
+.card {
+  width: 350px;
+  height: 550px;
+  padding: 25px;
+  margin: 15px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card > * {
+margin: 10px 0;
+}
+
+.card img {
+  max-width: 100%;
+  border-radius: 50px;
+}

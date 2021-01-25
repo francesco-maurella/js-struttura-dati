@@ -1,10 +1,12 @@
-
+// array codici-simboli per costi di mana
 const fieldCodes = [
   'W', 'U', 'B', 'R', 'G'
 ];
 
-const powerValue = [1, 2, 3, 4, 5];
+// array valori di potere disponibili
+const powerValues = [1, 2, 3, 4, 5];
 
+// array tipi di carte
 const cardTypes = [
   'terre',
   'creature',
@@ -14,127 +16,190 @@ const cardTypes = [
   'stregonerie'
 ];
 
-/* Abbiamo creato un oggetto di oggetti, come riferimento
-di una edizione. Se ad esempio scrivo editions['SP']
-allora otterrò tutto un oggetto che descrive
-con più dettagli l'edizione.
-come oggetto di oggetti, può essere navigato solo con il for-in */
-
+// oggetto di edizioni, contenente sub-oggetti che le descrivono
 const editions = {
-
   'BL': {
       edition: 'Boolean',
       rarity: 'blue'
   },
-
   'SP': {
       edition: 'Special',
       rarity: 'red'
   }
-
 }
 
-
-const cards = [{
-
-  cardName: 'Grizzly Bears',
-
-  cost: {
-    genericCostNumber: 1,
-    costFields: [ // colors array con riferimento a fieldCodes
-      fieldCodes[0],  // 'W',  - un suo riferimento
-      fieldCodes[2]   // 'B'
-    ],
+// array di oggetti "carte"
+const cards = [
+  {
+    cardName: 'Grizzly Bears', // nome carta
+    cost: { // oggetto con voci di costo:
+      genericCostNumber: 1, // costo generico
+      costFields: [ // costo di mana con riferimento ad array fieldCodes
+        fieldCodes[0],
+        fieldCodes[2]
+      ]
+    },
+    picture: 'img/01.jpg', // immagine carta
+    cardType: cardTypes[1], // tipo carta
+    cardObject: 'Bear', // oggetto specifico carta
+    editionType: editions['BL'], // edizione (a scelta dall'array)
+    description: 'Lorem ipsum', // descrizione abilità
+    story: 'Naltro Lorem Ipsum', // citazione (testo-colore)
+    score: { // valori di forza
+      power: powerValues[3],  // potere, con riferimento ad array powerValues
+      toughness: 2 // costituzione
+    }
   },
-
-  picture: 'images/i.png',
-  cardType: cardTypes[1],
-  cardObject: 'Bear',
-
-  editionType: editions['BL'],
-
-  description: 'Lorem ipsum',
-  story: 'Naltro Lorem Ipsum',
-
-  score: {
-    power: 2,  // filtrarlo per power
-    toughness: 2
+  {
+    cardName: 'Sviluppatore guerriero',
+    cost: {
+      genericCostNumber: 3,
+      costFields: [
+        fieldCodes[2],
+        fieldCodes[3]
+      ]
+    },
+    picture: 'img/02.jpg',
+    cardType: cardTypes[5],
+    cardObject: 'Esaurito',
+    editionType: editions['BL'],
+    description: 'Lo sviluppatore guerriero spezza i byte in bit!',
+    story: 'Lo sviluppatore guerriero è una forma di essere umano evoluto.',
+    score: {
+      power: powerValues[2],
+      toughness: 3
+    }
+  },
+  {
+    cardName: 'Maurizio Costanzo',
+    cost: {
+      genericCostNumber: 1,
+      costFields: [
+        fieldCodes[1],
+        fieldCodes[0]
+      ]
+    },
+    picture: 'img/03.jpg',
+    cardType: cardTypes[3],
+    cardObject: 'Obeso',
+    editionType: editions['BL'],
+    description: 'Presentatore senza collo, ma con cravatta, camicia e panza',
+    story: 'State boni...',
+    score: {
+      power: powerValues[4],
+      toughness: 3
+    }
+  },
+  {
+    cardName: 'Robin',
+    cost: {
+      genericCostNumber: 2,
+      costFields: [
+        fieldCodes[0],
+        fieldCodes[4]
+      ]
+    },
+    picture: 'img/04.jpg',
+    cardType: cardTypes[1],
+    cardObject: 'Spalla sfigata',
+    editionType: editions['BL'],
+    description: 'Da sempre il Numero 2, sempre un passo dietro al Bat-mentore',
+    story: 'Holy Bat!',
+    score: {
+      power: powerValues[0],
+      toughness: 3
+    }
+  },
+  {
+    cardName: 'Asciugamani sporco',
+    cost: {
+      genericCostNumber: 5,
+      costFields: [
+        fieldCodes[1],
+        fieldCodes[2]
+      ]
+    },
+    picture: 'img/05.jpg',
+    cardType: cardTypes[4],
+    cardObject: 'Reliquia usata',
+    editionType: editions['SP'],
+    description: 'Nemica giurata delle lavatrici, può assumere strani odori',
+    story: 'Candeggina Ace, non mi avrai mai!',
+    score: {
+      power: powerValues[4],
+      toughness: 1
+    }
   }
-
-  },
-  {
-
-    cardName: 'Sviluppatore guerriero',
-
-    cost: {
-      genericCostNumber: 3,
-      costFields: [ // colors array con riferimento a fieldCodes
-        fieldCodes[2],
-        fieldCodes[3]
-      ],
-    },
-
-    picture: 'images/g.png',  // da inserire immagine
-    cardType: cardTypes[1],
-    cardObject: 'Bear',
-
-    editionType: editions['BL'],
-
-    description: 'Lo sviluppatore guerriero spezza i byte in bit!',
-    story: 'Lo sviluppatore guerriero è una forma di essere umano evoluto.',
-
-    score: {
-      power: 5,  // r
-      toughness: 3
-    }
-
-    },
-  {
-
-    cardName: 'Sviluppatore guerriero',
-
-    cost: {
-      genericCostNumber: 3,
-      costFields: [ // colors array con riferimento a fieldCodes
-        fieldCodes[2],
-        fieldCodes[3]
-      ],
-    },
-
-    picture: 'images/g.png',  // da inserire immagine
-    cardType: cardTypes[1],
-    cardObject: 'Bear',
-
-    editionType: editions['BL'],
-
-    description: 'Lo sviluppatore guerriero spezza i byte in bit!',
-    story: 'Lo sviluppatore guerriero è una forma di essere umano evoluto.',
-
-    score: {
-      power: 5,  // r
-      toughness: 3
-    }
-
-    },
 ];
 
-// const filteredBy = ((array, propriety, condition) => {
-//   return newArray = array.filter((element) => {
-//     return element.propriety === condition;
-//   })
-// });
-
-const innerHTMLelement = ((container, array) => {
-  $(`${container}`).text('');
-  array.forEach((element, i) => {
-    let {cardName} = element
-    $(`${container}`).append(`<div> ${cardName} </div>`);
-  });
+// funzione filtra per tipo carta
+const filterByType = ((array, value) => {
+  return array.filter((element) => {
+    let {cardType} = element;
+    return cardType === value;
+  })
 
 });
 
-innerHTMLelement('.cards-list', cards)
+// funzione filtra per potere-carta
+const filterByPower = ((array, value) => {
+  return array.filter((element) => {
+    let {power} = element.score;
+    return power === value;
+  })
+});
 
+// funzione innesto HTML lista card
+const innerCardsList = ((htmlContainer, array) => {
+  $(`${htmlContainer}`).text(''); // reset html
+  array.forEach((element) => {
+    let {
+      cardName, cardType, cardObject, description, story, picture
+    } = element;
+    $(`${htmlContainer}`).append(`
+      <li class="card">
+        <h2>${cardName}</h2>
+        <h3>${cardType} / ${cardObject}</h3>
+        <img src="${picture}">
+        <p>${description} <br/><br/> "<i>${story}</i>"</p>
+      </li>
+      `);
+  });
+});
 
+// funzione innesto HTML lista copzioni
+const innerOptionsList = ((htmlContainer, array) => {
+  array.forEach((element) => {
+    $(`${htmlContainer}`).append(
+      `<option value="${element}">${element}</option>`
+    );
+  });
+});
 
-console.log(cards);
+// stampiamo lista completa cards
+innerCardsList('.cards-list', cards);
+
+// creiamo lista opzioni lista potere nel selettore Html
+innerOptionsList('.select-power', powerValues);
+
+// creiamo lista opzioni lista potere nel selettore Html
+innerOptionsList('.select-type', cardTypes);
+
+// selezioniamo lista carte flitrando i tipi
+$('.select-type').change(function(){
+  const thisValue = $(this).val();
+  const selectedList = filterByType(cards, thisValue);
+  innerCardsList('.cards-list', selectedList);
+});
+
+// selezioniamo lista carte flitrando il valore poteri
+$('.select-power').change(function(){
+  const thisValue = parseInt($(this).val());
+  const selectedList = filterByPower(cards, thisValue);
+  innerCardsList('.cards-list', selectedList);
+});
+
+// selezioniamo lista carte flitrando il valore poteri
+$('.reset').click(function(){
+  innerCardsList('.cards-list', cards);
+});

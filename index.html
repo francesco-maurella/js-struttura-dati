@@ -1,16 +1,43 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="it" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JAVASCRIPT - ECMASRIPT 6 [Struttura Dati]</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body>
 
-    <div class="cards-list">
+    <main>
 
-    </div>
+      <!-- Selettori opzioni -->
+      <div class="selectors flx">
+        <div>
+          <label for="type">Seleziona per "Tipo"</label>
+          <select class="select-type" name="type">
+          </select>
+        </div>
 
+        <div>
+          <label for="power">Seleziona per "Potere"</label>
+          <select class="select-power" name="power">
+          </select>
+        </div>
+
+        <button type="button" class="reset" name="reset">Resetta</button>
+      </div>
+      <!-- / Selettori opzioni -->
+
+      <!-- Lista Cards -->
+      <div>
+        <ul class="cards-list flx">
+        </ul>
+      </div>
+      <!-- / Lista Cards -->
+
+    </main>
 
     <script src="js/script.js" charset="utf-8"></script>
 
