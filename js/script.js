@@ -103,7 +103,7 @@ const cards = [
     cardType: cardTypes[1],
     cardObject: 'Spalla sfigata',
     editionType: editions['BL'],
-    description: 'Da sempre il Numero 2, sempre un passo dietro al Bat-mentore',
+    description: 'Il Numero 2 per antonomasia, sempre un passo dietro al Bat-mentore',
     story: 'Holy Bat!',
     score: {
       power: powerValues[0],
@@ -154,11 +154,12 @@ const innerCardsList = ((htmlContainer, array) => {
   $(`${htmlContainer}`).text(''); // reset html
   array.forEach((element) => {
     let {
-      cardName, cardType, cardObject, description, story, picture
+      cardName, cardType, cardObject, description, story, picture, score
     } = element;
     $(`${htmlContainer}`).append(`
       <li class="card">
         <h2>${cardName}</h2>
+        <h4>( ${score.power} / ${score.toughness} )</h3>
         <h3>${cardType} / ${cardObject}</h3>
         <img src="${picture}">
         <p>${description} <br/><br/> "<i>${story}</i>"</p>

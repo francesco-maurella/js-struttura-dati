@@ -9,6 +9,10 @@ body {
   font-size: 15px;
 }
 
+button {
+  padding: 5px;
+}
+
 main {
   max-width: 800px;
   margin: auto;
@@ -20,6 +24,7 @@ main {
 
 .selectors {
   justify-content: space-between;
+  align-items: center;
   padding: 20px 0;
   border-bottom: 1px solid #CCC;
 }
@@ -43,10 +48,15 @@ main {
   border: 1px solid #000;
   border-radius: 5px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  text-transform: capitalize;
 }
 
 .card > * {
-margin: 10px 0;
+  margin: 10px 0;
+}
+
+.card h4, .card h3 {
+  color: #5B5B5B;
 }
 
 .card img {
