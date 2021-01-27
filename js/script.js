@@ -177,9 +177,6 @@ const innerOptionsList = ((htmlContainer, array) => {
   });
 });
 
-// stampiamo lista completa cards
-innerCardsList('.cards-list', cards);
-
 // creiamo lista opzioni lista potere nel selettore Html
 innerOptionsList('.select-power', powerValues);
 
@@ -204,3 +201,6 @@ $('.select-power').change(function(){
 $('.reset').click(function(){
   innerCardsList('.cards-list', cards);
 });
+
+// stampiamo lista carte, avviando immediatamente il click di reset
+$('.reset').click();
